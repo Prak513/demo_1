@@ -12,6 +12,13 @@ spec:
     name: first-ctr
     ports:
       - containerPort: 8181
+    volumeMounts:
+      - mountPath: /cache
+        name: cache-volume
+  volumes:
+    - name: cache-volume
+      emptyDir:
+        sizeLimit: 500Mi
 
 ---
 
