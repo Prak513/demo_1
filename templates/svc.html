@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ obj.svc_name }}
+  namespace: {{ obj.namespace }}
+spec:
+  type: NodePort
+  selector:
+    {{ obj.label_key }}: {{ obj.label_value }}
+  ports:
+  - port: {{ obj.ctr_port }}
+    nodePort: {{ obj.node_port }}
+    name: http

@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: {{ obj.pod_name }}
+  namespace: {{ obj.namespace }}
+  labels:
+    {{ obj.label_key }}: {{ obj.label_value }}
+spec:
+  containers:
+  - image: {{ obj.image_name }}
+    imagePullPolicy: {{ obj.image_pull_policy }}
+    name: {{ obj.ctr_name }}
+    ports:
+      - containerPort: {{ obj.ctr_port }}
+    env:
+      - name: CURRENT_MIRRORING_LIST
+        value: {{ obj.topics_to_be_mirrored }}

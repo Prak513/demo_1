@@ -5,7 +5,6 @@ RUN apk -U upgrade
 RUN apk update && apk add bash
 
 COPY main.py main.py
-COPY mirror_list.json mirror_list.json
 
 RUN /usr/local/bin/python -m pip install --upgrade pip
 RUN pip install flask
